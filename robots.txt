@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://idealday.dtdm.us/sitemap.xml
