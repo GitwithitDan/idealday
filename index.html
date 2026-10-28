@@ -181,6 +181,23 @@ footer a{color:#b9cfd5}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 </style>
+<!-- Meta Pixel Code (ID 1790241192149187) -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1790241192149187');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1790241192149187&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -431,7 +448,12 @@ var CHECKOUT_URL = "https://dtdm.mysamcart.com/checkout/ideal-life-guide";
 (function(){
   var ctas=document.querySelectorAll('.cta'), offer=document.getElementById('offer');
   ctas.forEach(function(a){
-    if(CHECKOUT_URL && (offer.contains(a) || a.closest('.final'))){ a.href=CHECKOUT_URL; }
+    if(CHECKOUT_URL && (offer.contains(a) || a.closest('.final'))){
+      a.href=CHECKOUT_URL;
+      a.addEventListener('click',function(){
+        if(window.fbq){ fbq('track','InitiateCheckout',{value:18.00,currency:'USD',content_name:'Design Your Ideal Day'}); }
+      });
+    }
   });
   document.getElementById('yr').textContent=new Date().getFullYear();
 })();
